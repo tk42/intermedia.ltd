@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <div className="relative h-screen">
-          <div className="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat">
+          <div className="absolute inset-0 bg-hero-pattern bg-cover bg-center object-cover object-center bg-fixed bg-no-repeat">
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           </div>
           
