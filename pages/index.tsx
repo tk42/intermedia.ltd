@@ -98,9 +98,12 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold">プロジェクト</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-              <motion.div
+              <motion.a
+                href="https://qpcr-tracer.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
+                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg block"
               >
                 <div className="mb-4 h-48 overflow-hidden rounded-lg">
                   <Image
@@ -111,25 +114,18 @@ export default function Home() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <h3 className="text-xl font-semibold">qPCR Tracer</h3>
-                  <motion.a
-                    href="https://qpcr-tracer.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="rounded-md bg-black px-4 py-1 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-                  >
-                    サービスサイト
-                  </motion.a>
                 </div>
                 <p>qPCR実験における分注作業に伴う負担軽減を目指した実験初心者のためのガイドアプリ</p>
-              </motion.div>
+              </motion.a>
 
-              <motion.div
+              <motion.a
+                href="https://sm3.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
+                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg block"
               >
                 <div className="mb-4 h-48 overflow-hidden rounded-lg">
                   <Image
@@ -140,25 +136,18 @@ export default function Home() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <h3 className="text-xl font-semibold">Synergy Matchmaker</h3>
-                  <motion.a
-                    href="https://sm3.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="rounded-md bg-black px-4 py-1 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-                  >
-                    サービスサイト
-                  </motion.a>
                 </div>
                 <p>児童の心理特性に基づいて最適な班分けを数理最適化を用いて提案する学校教員向けのツール</p>
-              </motion.div>
+              </motion.a>
 
-              <motion.div
+              <motion.a
+                href="https://egov-viewer.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
+                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg block"
               >
                 <div className="mb-4 h-48 overflow-hidden rounded-lg">
                   <Image
@@ -169,21 +158,11 @@ export default function Home() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <h3 className="text-xl font-semibold">egov-viewer</h3>
-                  <motion.a
-                    href="https://egov-viewer.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="rounded-md bg-black px-4 py-1 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-                  >
-                    サービスサイト
-                  </motion.a>
                 </div>
                 <p>デジタル庁のeGov法令検索において法令参照が簡単に行えるGoogleChromeプラグイン</p>
-              </motion.div>
+              </motion.a>
             </div>
           </div>
         </section>
