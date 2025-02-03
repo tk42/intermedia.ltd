@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Image from 'next/image';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+
 
 export default function Home() {
   return (
@@ -237,6 +240,8 @@ export default function Home() {
           </div>
         </footer>
       </main>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
