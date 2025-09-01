@@ -44,7 +44,7 @@ export default function Home() {
                 className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
               >
                 <div className="mb-2 text-sm text-gray-600">May 21, 2024</div>
-                <h3 className="text-xl font-semibold">代表取締役が変更されました</h3>
+                <h3 className="text-xl font-semibold">経営体制を共同代表制に刷新しました</h3>
               </motion.div>
 
               <motion.div
@@ -199,7 +199,10 @@ export default function Home() {
 
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
                     <div className="font-semibold">代表取締役</div>
-                    <div className="md:col-span-3">小嶋 忠詞</div>
+                    <ul className="list-inside list-none space-y-2">
+                      <li>小嶋 忠詞</li>
+                      <li>小嶋 忠茂</li>
+                    </ul>
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
@@ -209,11 +212,14 @@ export default function Home() {
 
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
                     <div className="font-semibold">取引先金融機関</div>
-                    <div className="md:col-span-3">三菱UFJ銀行</div>
+                    <ul className="list-inside list-none space-y-2">
+                      <li>GMOあおぞら銀行</li>
+                      <li>三菱UFJ銀行</li>
+                    </ul>
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-                    <div className="font-semibold">所在地</div>
+                    <div className="font-semibold">東京営業所</div>
                     <div className="md:col-span-3">東京都港区北青山1-3-1 アールキューブ青山3F</div>
                   </div>
                 </div>
