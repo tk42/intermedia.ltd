@@ -101,6 +101,28 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold">プロジェクト</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+            <motion.a
+                href="https://www.meishiki-ai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg block"
+              >
+                <div className="mb-4 h-48 overflow-hidden rounded-lg">
+                  <Image
+                    src="/assets/meishiki.png"
+                    alt="Meishiki AI"
+                    width={400}
+                    height={300}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex items-center">
+                  <h3 className="text-xl font-semibold">命式AI</h3>
+                </div>
+                <p>LINE上でカジュアルな四柱推命診断ができるエンターテイメントアプリ</p>
+              </motion.a>
+
               <motion.a
                 href="https://qpcr-tracer.com"
                 target="_blank"
@@ -124,7 +146,7 @@ export default function Home() {
               </motion.a>
 
               <motion.a
-                href="https://sm3.com"
+                href="https://www.sm3.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
@@ -132,7 +154,7 @@ export default function Home() {
               >
                 <div className="mb-4 h-48 overflow-hidden rounded-lg">
                   <Image
-                    src="/assets/synergy-matchmaker2.png"
+                    src="/assets/synergy-matchmaker.png"
                     alt="Synergy Matchmaker"
                     width={400}
                     height={300}
