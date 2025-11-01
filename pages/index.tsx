@@ -3,9 +3,63 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-
+import { useState, useMemo, type ReactNode } from 'react'
 
 export default function Home() {
+  const [showMore, setShowMore] = useState(false)
+  interface NewsItem { date: string; title: string; extra?: ReactNode }
+  const newsItems: NewsItem[] = [
+    { date: '2024/05/21', title: '経営体制を共同代表制に刷新しました' },
+    { date: '2024/03/22', title: '資本金を1,000万円に変更' },
+    { date: '2023/10/26', title: 'オフィスを移設しました' },
+    { date: '2023/09/11', title: 'サイトを開設しました' },
+    {
+      date: '2015/04/01',
+      title: '京都コミュニティ放送「まいど教授の日本社会へのエール！」で番組配信',
+      extra: (
+        <p className="mt-2 text-sm text-blue-600">
+          <a href="https://radiocafe.jp/201504001/?intro=1" target="_blank" rel="noopener noreferrer">番組ページ</a>
+        </p>
+      ),
+    },
+    { date: '2015/03/02', title: '資本金を9,800万円に変更' },
+    {
+      date: '2006/09/01',
+      title: '「舞台上話者自動追尾装置付き全自動音像定位装置の開発」',
+      extra: (
+        <>
+          <p className="mt-2 text-sm">平成8年京都府中小企業創造的活動促進法認定事業計画に採択</p>
+          <p className="mt-2 text-sm text-blue-600">
+            <a href="https://www.pref.kyoto.jp/sangyo-sien/13200026.html" target="_blank" rel="noopener noreferrer">京都府 事業計画ページ</a>
+          </p>
+        </>
+      ),
+    },
+    {
+      date: '1999/12/17',
+      title: '「画像処理方法およびその装置並びに記憶媒体」に関する国際特許出願（WO2001-045385）',
+      extra: (
+        <div className="mt-2 space-x-4 text-sm">
+          <a className="text-blue-600" href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200903053605294466" target="_blank" rel="noopener noreferrer">J-GLOBAL 情報 1</a>
+          <a className="text-blue-600" href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=201103034242077739" target="_blank" rel="noopener noreferrer">J-GLOBAL 情報 2</a>
+        </div>
+      ),
+    },
+    {
+      date: '1996/09/27',
+      title: '「端子部露出型電気ウキ」に関する国際特許出願（特開平10-098997）',
+      extra: (
+        <p className="mt-2 text-sm text-blue-600">
+          <a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200903084955729174" target="_blank" rel="noopener noreferrer">J-GLOBAL 情報</a>
+        </p>
+      ),
+    },
+    { date: '1992/03/17', title: '創業' },
+  ]
+  const sortedNews = useMemo(() => {
+    // 日付文字列 (YYYY/MM/DD) の辞書順で降順ソート
+    return [...newsItems].sort((a, b) => b.date.localeCompare(a.date))
+  }, [newsItems])
   return (
     <div className="min-h-screen bg-black">
       <Head>
@@ -39,29 +93,42 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold">ニュース</h2>
             <div className="mx-auto max-w-3xl space-y-8">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
-              >
-                <div className="mb-2 text-sm text-gray-600">May 21, 2024</div>
-                <h3 className="text-xl font-semibold">経営体制を共同代表制に刷新しました</h3>
-              </motion.div>
+              {sortedNews.slice(0, 3).map((item) => (
+                <motion.div key={`${item.date}-${item.title}`}
+                  whileHover={{ scale: 1.02 }}
+                  className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
+                >
+                  <div className="mb-2 text-sm text-gray-600">{item.date}</div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  {item.extra}
+                </motion.div>
+              ))}
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
-              >
-                <div className="mb-2 text-sm text-gray-600">Oct 26, 2023</div>
-                <h3 className="text-xl font-semibold">オフィスを移設しました</h3>
-              </motion.div>
+              <div className="text-center pt-2">
+                <button
+                  onClick={() => setShowMore(v => !v)}
+                  className="inline-block rounded-full border border-gray-300 px-6 py-2 text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50"
+                  aria-expanded={showMore}
+                  aria-controls="news-more"
+                >
+                  {showMore ? '閉じる' : 'もっと見る'}
+                </button>
+              </div>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
-              >
-                <div className="mb-2 text-sm text-gray-600">Sep 11, 2023</div>
-                <h3 className="text-xl font-semibold">サイトを開設しました</h3>
-              </motion.div>
+              {showMore && (
+                <div id="news-more" className="space-y-6 pt-6">
+                  {sortedNews.slice(3).map((item) => (
+                    <motion.div key={`${item.date}-${item.title}`}
+                      whileHover={{ scale: 1.02 }}
+                      className="overflow-hidden rounded-lg bg-white p-6 shadow-lg"
+                    >
+                      <div className="mb-2 text-sm text-gray-600">{item.date}</div>
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                      {item.extra}
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </section>
